@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "MemberList";
+}
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Totally Awesome People Club!</title>
+    <script src="@Url.Content("~/scripts/jquery-1.6.2.min.js")"></script>
+    <script src="@Url.Content("~/scripts/knockout-3.0.0.js")"></script>
+    <script src="@Url.Content("~/scripts/club.js?a=1")"></script>
+    <link rel="stylesheet" href="~/css/core.css" />
+</head>
+<body class="stolen-form-style">
+    <form id="employeeForm" name="employeeForm" method="POST">
+        <script id="MemberTemplate" type="text/html">
+            <div class="stolen-form-style">
+                <span>
+                    <label>Name:</label>
+                    <input type="text" id="mbrName" data-bind="value:Name" />
+                </span>
+                <span>
+                    <label>Phone Number:</label>
+                    <input type="text" id="mbrPhoneNumber" data-bind="value:PhoneNumber" />
+                </span>
+                <span>
+                    <label>Favorite Food:</label>
+                    <input type="text" id="mbrFood" data-bind="value:Food" />
+                </span>
+                <input type="button" id="btnRemove" value="Remove" data-bind="click: $parent.remove" />
+            </div>
+        </script>
+        <div>
+            <h1>Totally Awesome People Club</h1>
+            <h2>Current Members: <span data-bind="text: MemberList().length"></span></h2>
+            <h3>Add New Member</h3>
+            <span data-bind="template:{name:'MemberTemplate', foreach:MemberList}">
+            </span>
+            <div>
+                <input type="button" id="btnAdd" value="Add Another" data-bind="click: add" />
+            </div>
+        </div>
+    </form>
+</body>
+</html>

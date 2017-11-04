@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "EmployeePhone";
+}
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Employee PhoneList</title>
+    <script src="@Url.Content("~/scripts/jquery-1.6.2.min.js")"></script>
+    <script src="@Url.Content("~/scripts/knockout-3.0.0.js")"></script>
+    <script src="@Url.Content("~/scripts/phone.js?a=1")"></script>
+</head>
+<body>
+    <form id="employeeForm" name="employeeForm" method="POST">
+        <script id="PhoneTemplate" type="text/html">
+            <div>
+                <span>
+                    <label>Country Code:</label>
+                    <input type="text" id="txtCountryCode" data-bind="value:CountryCode" />
+                </span>
+                <span>
+                    <label>Phone Number:</label>
+                    <input type="text" id="txtPhoneNumber" data-bind="value:PhoneNumber" />
+                </span>
+                <input type="button" id="btnRemove" value="Remove" data-bind="click: $parent.remove" />
+            </div>
+        </script>
+        <div>
+            <h2>Employee Phone Number</h2>
+            <div data-bind="template:{name:'PhoneTemplate', foreach:PhoneList}, visible:isVisible">
+            </div>
+            <div>
+                <input type="button" id="btnAdd" value="Add Another" data-bind="click: add" />
+            </div>
+        </div>
+    </form>
+</body>
+</html>

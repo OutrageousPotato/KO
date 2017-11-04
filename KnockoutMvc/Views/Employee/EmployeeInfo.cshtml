@@ -1,0 +1,60 @@
+﻿@using System.Web.Mvc
+@using System.Web.Mvc.Html
+
+@model KnockoutMvc.Models.Employee
+
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>EmployeeInfo</title>
+    <link href="@Url.Content("~/css/core.css")" rel="stylesheet" />
+    <script src="@Url.Content("~/scripts/jquery-1.6.2.min.js")"></script>
+    <script src="@Url.Content("~/scripts/knockout-3.0.0.js")"></script>
+    <script src="@Url.Content("~/scripts/core.js?a=1")" type="text/javascript"></script>
+</head>
+<body>
+    <form id="employeeForm" name="employeeForm" method="POST">
+        <div id="form-root">
+            <div>
+                <label class="form-label">First Name:</label>
+                <input type="text" id="txtFirstName" name="txtFirstName" data-bind="value:Employee.FirstName" />
+            </div>
+             <div>
+                <label class="form-label">Last Name:</label>
+                <input type="text" id="txtLastName" name="txtLastName" data-bind="value:Employee.LastName"  />
+            </div>
+            <div>
+                <label class="form-label">Full Name:</label>
+                <input type="text" id="txtFullName" name="txtFullName" data-bind="value:Employee.FullName" readonly="readonly"  />
+            </div>
+            <div>
+                <label class="form-label">Date Of Birth:</label>
+                <input type="text" id="txtDateOfBirth" name="dateOfBirth" data-bind="value:Employee.DateOfBirth"  />
+            </div>
+            <div>
+                <label>Education:</label>
+                <input type="checkbox" value="graduation" id="chkGraduation" name="chkGraduation" data-bind="checked:Employee.EducationList" />Graduation
+                <input type="checkbox" value="postGraduation" id="chkPostGraduation" name="chkPostGraduation" data-bind="checked:Employee.EducationList" />PostGraduation
+            </div>
+            <div>
+                <label>Gender:</label>
+                <input type="radio" id="rdoMale" name="gender" value="0"  data-bind="checked:Employee.Gender" />Male
+                <input type="radio" id="rdoFeMale" name="gender" value="1" data-bind="checked:Employee.Gender"  />FeMale
+            </div>
+            <div>
+                <label class="form-label">Department:</label>
+                <select id="ddlDepartment" name="ddlDepartment" data-bind="options:$root.Employee.DepartmentList, optionsValue:'Id', optionsText:'Name', value:Employee.DepartmentId">
+                </select>
+            </div>
+            <div>
+                <input type="button" id="btnSubmit" value="Submit" data-bind = "click: submit" />
+                 <input type="button" id="btnReset" value="Reset" data-bind = "click: reset" />
+            </div>
+        </div>
+    </form>
+</body>
+</html>

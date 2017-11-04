@@ -1,0 +1,27 @@
+﻿form-ui input{
+    margin: 5px 10px 0 10px
+}
+.form-label {
+    display: inline-block;
+    width: 100px;
+}
+
+.stolen-form-style {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+    background: #4800ff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    margin: 0;
+    outline: 0;
+    padding: 7px;
+    width: 100%;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    background-color: rgb(9, 117, 195);
+    color: #b6ff00;
+    -webkit-box-shadow: 0 1px 0 rgb(255, 0, 110) inset;
+    box-shadow: 0 5px 0 rgb(1, 0, 110) inset;
+    margin-bottom: 10px;
+}
